@@ -50,7 +50,7 @@ int	main(void)
 				printf("A = 1 , B = 2: ");
 				scanf("%d", &opt);
 				if (opt == 1)
-                {
+				{
 					loop2 = 1;
 					while (loop2)
 					{
@@ -70,7 +70,7 @@ int	main(void)
 					}
 				}
 				else if (opt == 2)
-                {
+				{
 					loop2 = 1;
 					while (loop2)
 					{
@@ -89,14 +89,14 @@ int	main(void)
 						scanf("%d", &loop2);
 					}
 				}
-                break;
+				break;
 			case 3:
 				printf("A = 1 , B = 2: ");
 				scanf("%d", &opt);
 				printf("Degree: ");
 				scanf("%d", &position);
 				if (opt == 1)
-                {
+				{
 					if (removePLElement(pList1, position))
 						printf("Remove: Success\n\n");
 					else
@@ -104,16 +104,16 @@ int	main(void)
 					displayPolyList(pList1);
 				}
 				else if (opt == 2)
-                {
+				{
 					if (removePLElement(pList2, position))
 						printf("Remove: Success\n\n");
 					else
 						printf("Remove: Fail\n\n");
 					displayPolyList(pList2);
 				}
-                break;
-            case 4:
-                pList = createPolyList("Poly");
+				break;
+			case 4:
+				pList = createPolyList("Poly");
 				if (!pList)
 				{
 					printf("Create poly: fail\n\n");
@@ -124,7 +124,7 @@ int	main(void)
 				else
 					printf("Add Poly Fail\n\n");
 				displayPolyList(pList);
-                break;
+				break;
 			case 5:
 				printf("x: ");
 				scanf("%d", &ret);
@@ -160,13 +160,13 @@ int	main(void)
 					ret = calculator(pList, ret);
 					printf("ret: %d\n\n", ret);
 				}
-                break;
-            case 6:
+				break;
+			case 6:
 				printf("A = 1, B = 2, Poly = 3: ");
 				scanf("%d", &opt);
 				printf("Position: ");
 				scanf("%d", &position);
-                if (opt == 1)
+				if (opt == 1)
 				{
 					get = getPLElement(pList1, position);
 					printf("%s: [%d] - %dx%d\n\n", pList1->name, position, get->coef, get->degree);
@@ -181,49 +181,49 @@ int	main(void)
 					get = getPLElement(pList, position);
 					printf("%s: [%d] - %dx%d\n\n", pList->name, position, get->coef, get->degree);
 				}
-                break;
-            case 7:
+				break;
+			case 7:
 				printf("A = 1, B = 2, Poly = 3: ");
 				scanf("%d", &opt);
-                if (opt == 1)
+				if (opt == 1)
 					printf("%s: %d\n\n", pList1->name, getPolyListLength(pList1));
 				else if (opt == 2)
 					printf("%s: %d\n\n", pList1->name, getPolyListLength(pList2));
 				else
 					printf("%s: %d\n\n", pList1->name, getPolyListLength(pList));
-                break;
-            case 8:
+				break;
+			case 8:
 				printf("A = 1, B = 2, Poly = 3: ");
 				scanf("%d", &opt);
 				if (opt == 1)
 					displayPolyList(pList1);
 				else if (opt == 2)
-                	displayPolyList(pList2);
+					displayPolyList(pList2);
 				else
-                	displayPolyList(pList);
-                break;
-            case 9:
+					displayPolyList(pList);
+				break;
+			case 9:
 				printf("A = 1, B = 2, Poly = 3: ");
 				scanf("%d", &opt);
-                if (opt == 1)
-                	clearPolyList(pList1);
+				if (opt == 1)
+					clearPolyList(pList1);
 				else if (opt == 2)
-                	clearPolyList(pList2);
+					clearPolyList(pList2);
 				else
-                	clearPolyList(pList);
+					clearPolyList(pList);
 				printf("Clear: Success\n\n");
-                break;
-            case 10:
+				break;
+			case 10:
 				printf("A = 1, B = 2, Poly = 3: ");
 				scanf("%d", &opt);
-                if (opt == 1)
+				if (opt == 1)
 				{
 					if (!pList1)
 					{
 						printf("No polynomial\n\n");
 						break;
 					}
-                	deletePolyList(pList1);
+					deletePolyList(pList1);
 				}
 				else if (opt == 2)
 				{
@@ -232,7 +232,7 @@ int	main(void)
 						printf("No polynomial\n\n");
 						break;
 					}
-                	deletePolyList(pList2);
+					deletePolyList(pList2);
 				}
 				else
 				{
@@ -241,15 +241,15 @@ int	main(void)
 						printf("No polynomial\n\n");
 						break;
 					}
-                	deletePolyList(pList);
+					deletePolyList(pList);
 				}
 				printf("Clear: Success\n\n");
-                break;
-            case 11:
-                loop = 0;
-                break;
-            default:
-                printf("Please Enter a Valid Option\n\n");
-        }
-    }
+				break;
+			case 11:
+				loop = 0;
+				break;
+			default:
+				printf("Please Enter a Valid Option\n\n");
+		}
+	}
 }

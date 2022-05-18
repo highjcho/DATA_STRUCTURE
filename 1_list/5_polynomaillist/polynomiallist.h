@@ -1,8 +1,8 @@
 #ifndef _POLYNOMIALLIST_
 #define _POLYNOMIALLIST_
 
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 typedef struct PolyListNodeType
 {
@@ -14,8 +14,8 @@ typedef struct PolyListNodeType
 typedef struct PolyListType
 {
 	char *name;
-	int currentElementCount;	
-	PolyListNode headerNode;		
+	int currentElementCount;
+	PolyListNode headerNode;
 } PolyList;
 
 PolyList* createPolyList(char *name);

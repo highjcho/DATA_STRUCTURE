@@ -85,33 +85,33 @@ int addPoly(PolyList *pList, PolyList *pList1, PolyList *pList2)
 
 int removePLElement(PolyList* pList, int degree)
 {
-    PolyListNode *remove;
-    PolyListNode *prev;
+	PolyListNode *remove;
+	PolyListNode *prev;
 
 	if(!pList)
 		return (FALSE);
 	prev = &(pList->headerNode); //prev 세팅
 	while (prev->pLink != NULL && (prev->pLink->degree > degree)) // 마지막 노드 전까지 && 추가하려는 노드의 차수가 작을 때까지
 		prev = prev->pLink;
-    remove = prev->pLink; // remove 저장
+	remove = prev->pLink; // remove 저장
 	if (remove->degree != degree) // 제거하려는 차수가 리스트에 존재하지 않을 경우
 		return (FALSE);
-    prev->pLink = remove->pLink; // prev의 pLink 연결
-    pList->currentElementCount--; // 현재 원소 개수 갱신
-    free(remove); // remove free
-    return (TRUE);
+	prev->pLink = remove->pLink; // prev의 pLink 연결
+	pList->currentElementCount--; // 현재 원소 개수 갱신
+	free(remove); // remove free
+	return (TRUE);
 }
 
 PolyListNode *getPLElement(PolyList *pList, int position)
 {
-    PolyListNode *res;
+	PolyListNode *res;
 
-    if (!pList || position < 0 || position > pList->currentElementCount) // 에러처리
-        return (FALSE);
-    res = &(pList->headerNode);
-    for (int i = 0; i <= position; i++)
-        res = res->pLink;
-    return (res);
+	if (!pList || position < 0 || position > pList->currentElementCount) // 에러처리
+		return (FALSE);
+	res = &(pList->headerNode);
+	for (int i = 0; i <= position; i++)
+		res = res->pLink;
+	return (res);
 }
 
 int	recursive_power(int	x, int	power)
@@ -138,52 +138,52 @@ int calculator(PolyList *pList, int x)
 
 void displayPolyList(PolyList *pList)
 {
-    PolyListNode *cur;
+	PolyListNode *cur;
 	if ((pList->headerNode.pLink == NULL) || pList->currentElementCount == 0)
 	{
 		printf("No Array or No Node\n");
 		return ;
 	}
 	cur = pList->headerNode.pLink;
-    printf("Current Element Count : %d\n", pList->currentElementCount);
-    printf("%s: ", pList->name);
+	printf("Current Element Count : %d\n", pList->currentElementCount);
+	printf("%s: ", pList->name);
 	while (cur)
 	{
-        if (cur->coef != 0 && cur->degree != 0) // 계수와 차수가 모두 0이 아닌 경우
-		    printf("%dx%d", cur->coef, cur->degree);
-        else if (cur->coef != 0 && cur->degree == 0) // 차수가 0인 경우
-            printf("%d", cur->coef);
-        else if (cur->coef == 0 && cur->degree == 0) // 둘 다 0인 경우
-            printf("0");
-        if (cur->pLink != NULL && (cur->coef != 0 && cur->degree != 0)) // 다음 노드가 존재하고 현재 노드의 계수와 차수가 모두 0이 아닌 경우
-            printf(" + ");
+		if (cur->coef != 0 && cur->degree != 0) // 계수와 차수가 모두 0이 아닌 경우
+			printf("%dx%d", cur->coef, cur->degree);
+		else if (cur->coef != 0 && cur->degree == 0) // 차수가 0인 경우
+			printf("%d", cur->coef);
+		else if (cur->coef == 0 && cur->degree == 0) // 둘 다 0인 경우
+			printf("0");
+		if (cur->pLink != NULL && (cur->coef != 0 && cur->degree != 0)) // 다음 노드가 존재하고 현재 노드의 계수와 차수가 모두 0이 아닌 경우
+			printf(" + ");
 		cur = cur->pLink; // 다음 노드 탐색
 	}
-    printf("\n\n");
+	printf("\n\n");
 }
 
 void clearPolyList(PolyList* pList)
 {
-    PolyListNode* node;
-    PolyListNode* tmp;
+	PolyListNode* node;
+	PolyListNode* tmp;
 
-    pList->currentElementCount = 0;
-    node = pList->headerNode.pLink;
-    while (node)
-    {
-        tmp = node->pLink; // 다음 노드 정보 저장
-        free(node);
-        node = tmp;
-    }
+	pList->currentElementCount = 0;
+	node = pList->headerNode.pLink;
+	while (node)
+	{
+		tmp = node->pLink; // 다음 노드 정보 저장
+		free(node);
+		node = tmp;
+	}
 }
 
 int getPolyListLength(PolyList *pList)
 {
-    return (pList->currentElementCount);
+	return (pList->currentElementCount);
 }
 
 void deletePolyList(PolyList *pList)
 {
-    clearPolyList(pList);
-    free(pList);
+	clearPolyList(pList);
+	free(pList);
 }
