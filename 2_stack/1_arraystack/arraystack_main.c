@@ -7,10 +7,9 @@ int main(void)
 	ArrayStackNode	stackElement;
 	int				loop;
 	int				opt;
-	char			data;
 
 	pStack = NULL;
-	opt = 0;
+	loop = 1;
 	while (loop)
 	{
 		printf("[1] Create [2] Push [3] Pop [4] Peek [5] Check Full [6] Check Empty [7] Display [8] Delete [9] Exit ");
@@ -27,11 +26,16 @@ int main(void)
 				scanf("%d", &opt);
 				pStack = createArrayStack(opt);
 				if (pStack)
-					printf("Create Array: Success\n\n");
+					printf("Create array stack: Success\n\n");
 				else
-					printf("Create Array: Failed\n\n");
+					printf("Create array stack: Fail\n\n");
 				break;
 			case 2:
+				if (!pStack)
+				{
+					printf("There is no stack. Please create first.\n\n");
+					break;
+				}
 				printf("Data: ");
 				scanf(" %c", &stackElement.data);
 				if (pushAS(pStack, stackElement))
@@ -40,7 +44,7 @@ int main(void)
 					displayStack(pStack);
 				}
 				else
-					printf("Push: Failed\n\n");
+					printf("Push: Fail\n\n");
 				break;
 			case 3:
 				element = popAS(pStack);
@@ -50,14 +54,14 @@ int main(void)
 					displayStack(pStack);
 				}
 				else
-					printf("Pop: Failed\n\n");
+					printf("Pop: Fail\n\n");
 				break;
 			case 4:
 				element = peekAS(pStack);
 				if (element)
 					printf("Peek: %c\n\n", element->data);
 				else
-					printf("Peek: Failed\n\n");
+					printf("Peek: Fail\n\n");
 				break;
 			case 5:
 				if (isArrayStackFull(pStack))
@@ -72,11 +76,16 @@ int main(void)
 					printf("No\n\n");
 				break;
 			case 7:
+				if (!pStack)
+				{
+					printf("There is no stack. Please create first.\n\n");
+					break;
+				}
 				displayStack(pStack);
 				break;
 			case 8:
 				if (!pStack)
-					printf("Delete: Failed\n\n");
+					printf("Delete: There is no stack.\n\n");
 				else
 				{
 					deleteArrayStack(pStack);
